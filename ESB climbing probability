@@ -45,5 +45,3 @@ plt.show()
 #Chance of reaching at least 60 steps
 chance = sum(ends>=60)/len(ends)
 print(chance)
-
-0.582
