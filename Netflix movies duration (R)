@@ -1,0 +1,18 @@
+library(ggplot2)
+library(dplyr)
+
+netflix <- read.csv2('C:/Users/norbe/Desktop/Pliki CSV/netflix_titles.csv', sep = ',', stringsAsFactors = FALSE)
+
+#What was the most frequent movie duration in the 1990s?
+netflix_1990s <- subset(netflix, netflix['release_year'] >=1990 & netflix['release_year'] <= 1999)
+netflix_1990s <- netflix_1990s %>% filter(grepl("min", duration, ignore.case = TRUE))
+netflix_1990s$duration <- as.factor(netflix_1990s$duration)
+netflix_1990s$duration <- as.integer(netflix_1990s$duration)
+netflix_1990s %>%
+  group_by(duration) %>%
+  count() %>%
+  arrange(desc(n)) 
+  
+ggplot(netflix_1990s, aes(x = duration)) + geom_histogram()
+max(netflix_1990s$duration)
+
