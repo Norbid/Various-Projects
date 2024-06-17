@@ -1,7 +1,7 @@
 library(ggplot2)
 library(dplyr)
 
-netflix <- read.csv2('C:/Users/norbe/Desktop/Pliki CSV/netflix_titles.csv', sep = ',', stringsAsFactors = FALSE)
+netflix <- read.csv2('/netflix_titles.csv', sep = ',', stringsAsFactors = FALSE)
 
 #What was the most frequent movie duration in the 1990s?
 netflix_1990s <- subset(netflix, netflix['release_year'] >=1990 & netflix['release_year'] <= 1999)
